@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function App() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.carnet}>
+      <LinearGradient colors={['#5b991c', '#7CBA3D', '#95d158']} style={styles.carnet}>
         <View style={styles.carnet_logo}>
           <View style={{flex:1, flexDirection: 'row', justifyContent: 'flex-start'}}>
             <Image 
@@ -27,13 +28,13 @@ export default function App() {
 
         <View style={styles.carnet_info}>
           <View style={styles.carnet_nombre}>            
-            <Text>FERNANDO EXEQUIEL ORQUERA</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 20}}>FERNANDO EXEQUIEL ORQUERA</Text>
           </View>
           <View style={styles.carnet_valido}>
-            <Text>AFILIADO ACTIVO</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 15}}>AFILIADO ACTIVO</Text>
           </View>
         </View>
-      </View>     
+      </LinearGradient>     
 
     </ScrollView>    
   );
@@ -47,10 +48,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   carnet: {
-    padding: 10,
+    padding: 20,
     justifyContent: 'space-between',
     borderRadius: 20,
-    backgroundColor: '#7CBA3D',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.58,
     shadowRadius: 16.00,
-    elevation: 24,
+    elevation: 28,
   },
   carnet_logo: {    
     flexDirection: 'row',
