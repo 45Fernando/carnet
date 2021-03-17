@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import CustomNavigationBar from "./components/CustomNavigationBar"
 
+import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import BeneficiariosScreen from './screens/BeneficiariosScreen';
 import CarnetScreen from './screens/CarnetScreen';
@@ -26,10 +27,11 @@ export default function App() {
     <PaperProvider theme={theme}>
       <NavigationContainer>      
         <Stack.Navigator 
-          initialRouteName="Home" 
+          initialRouteName="Login" 
           screenOptions={{
             header: (props) => <CustomNavigationBar {...props} />,
           }}>
+          <Stack.Screen name="Login" component={LoginScreen} options={{ title: '', subtitle: "" }, {headerShown: false}}/>
           <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'OSUNSa', subtitle: "Obra Social de la Universidad de Salta" }}/>
           <Stack.Screen name="Beneficiarios" component={BeneficiariosScreen} options={{ title: 'Beneficiarios'}}/>
           <Stack.Screen name="Carnet" component={CarnetScreen} options={{ title: 'Carnet'}} />
