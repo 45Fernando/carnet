@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Image, Text } from 'react-native';
 import LoginForm from '../components/Login/LoginForm'
 
-export default function Login() {
+export default function Login() {    
     
     return(
         <View style={styles.container}>
