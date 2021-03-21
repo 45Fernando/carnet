@@ -1,8 +1,11 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Beneficiarios from './BeneficiariosScreen';
 
-export default function Carnet({ navigation }) {
+export default function Carnet({route, navigation }) {
+  const beneficiario = route.params;
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <LinearGradient colors={['#8a831c', '#8c8733', '#a8a348']} style={styles.carnet}>
@@ -22,12 +25,16 @@ export default function Carnet({ navigation }) {
 
         <View style={styles.carnet_info}>
           <View style={styles.carnet_nombre}>            
-            <Text style={{fontWeight: 'bold', fontSize: 20}}>FERNANDO EXEQUIEL ORQUERA</Text>
+            <Text style={{fontWeight: 'bold', fontSize: 20}}>{beneficiario.affiliate.name}</Text>
           </View>
         </View>
 
         <View style={styles.carnet_numero}>          
-          <Text style={{fontWeight: 'bold', fontSize: 20}}>35106814</Text>
+          <Text style={{fontWeight: 'bold', fontSize: 20}}>{beneficiario.affiliate.dni}</Text>
+        </View>
+
+        <View style={styles.carnet_info}>          
+          <Text style={{fontWeight: 'bold', fontSize: 15}}>{beneficiario.covenant.name}</Text>
         </View>
 
         <View style={styles.carnet_info}>
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
   thumbnail: {
     width: 80,
     height: 80,
-    borderRadius: 20,
+    borderRadius: 50,
   },
   foto: {
     width: 80,

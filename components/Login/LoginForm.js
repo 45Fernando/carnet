@@ -1,45 +1,32 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { StyleSheet, View, TouchableOpacity, Text, StatusBar} from 'react-native'
-import { TextInput, Button } from 'react-native-paper';
+import React, { useRef, useState, useContext} from 'react';
+import { StyleSheet, View, TouchableOpacity, Text} from 'react-native'
+import { TextInput } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthContext } from '../../context/AuthContext'
 
 export default function LoginForm() {
     const correoInput = useRef(null);
     const passwordInput = useRef(null);
 
-    const [correo, onChangeCorreo] = useState(null);
-    const [password, onChangePassword] = useState(null);
+    const [correo, onChangeCorreo] = useState("");
+    const [password, onChangePassword] = useState("");
 
-    useEffect(() => {
-
-    }, [])
-
-    const ingresar = async () => {
-        if (correo != "" && password != "") {
-            await fetch('http://192.168.1.11:4000/api/login', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    'correo': correo,
-                    'password': password
-                })
-
-            }).then(response => {
-                if (response.ok) {
-                    response.json()
-                } else {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-            })                
-            .then(resData => {
-                alert(resData.message);
-            })
-            .catch(e => {
-                console.log('Hubo un problema con su operacion fetch: ' + e.message);
-              });
+    const { signIn } = useContext(AuthContext);
+    
+    const storeData = async (value) => {
+        try {
+          const jsonValue = JSON.stringify(value)
+          await AsyncStorage.setItem('currentUser', jsonValue)
+        } catch (e) {
+            console.log('Hubo un problema al guardar en AsyncStorage: ' + e.message);
         }
+      }
+
+    const ingresar = () => {
+        if (correo != "" && password != "") {
+            signIn({ correo, password });      
+        }
+        //TODO Controlar los diferentes casos de si los campos estan vacios.
     }
 
     return(
