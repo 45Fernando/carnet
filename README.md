@@ -1,3 +1,3 @@
 #Carnet
 
-Aplicacion movil para ver el carnet de afiliado de la obra social de la UNSa
+Aplicacion movil para credencial electronica de una obra social. Utilizando React Native con Expo.
