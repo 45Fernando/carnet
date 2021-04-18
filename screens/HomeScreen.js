@@ -7,7 +7,7 @@ export default function Home({ navigation }) {
     return(        
         <Fragment>
             <Button  style={styles.boton} icon="card-account-details-outline" mode="contained" onPress={() => navigation.navigate('Beneficiarios')}>
-                Carnets
+                CREDENCIALES
             </Button>
         </Fragment>        
     );

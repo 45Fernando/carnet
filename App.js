@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useEffect, useReducer} from 'react';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { ActivityIndicator, Colors, DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -97,7 +97,7 @@ export default function App() {
     () => ({
       signIn: async ({correo, password}) => {
         try {
-          let response = await fetch('http://192.168.1.11:4000/api/login', {
+          let response = await fetch('http://192.168.1.7:4000/api/login', {
               method: 'POST',
               headers: {
                   'Accept': 'application/json',
@@ -139,7 +139,7 @@ export default function App() {
       state: state
     }),
     [state]
-  );
+  ); 
 
   return (
     <PaperProvider theme={theme}>
