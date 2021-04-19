@@ -11,13 +11,13 @@ import { AuthContext } from './context/AuthContext'
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import BeneficiariosScreen from './screens/BeneficiariosScreen';
-import CarnetScreen from './screens/CarnetScreen';
+import CredencialScreen from './screens/CredencialScreen';
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#8c8733',
+    primary: '#50812f',
     accent: '#ffffff',
   },
 };
@@ -97,7 +97,7 @@ export default function App() {
     () => ({
       signIn: async ({correo, password}) => {
         try {
-          let response = await fetch('http://192.168.1.7:4000/api/login', {
+          let response = await fetch('http://192.168.1.8:4000/api/login', {
               method: 'POST',
               headers: {
                   'Accept': 'application/json',
@@ -153,7 +153,7 @@ export default function App() {
               }}>                      
               <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'OSUNSa', subtitle: "Obra Social de la Universidad de Salta" }}/>
               <Stack.Screen name="Beneficiarios" component={BeneficiariosScreen} options={{ title: 'Beneficiarios'}}/>
-              <Stack.Screen name="Carnet" component={CarnetScreen} options={{ title: 'Carnet'}} /> 
+              <Stack.Screen name="Credencial" component={CredencialScreen} options={{ title: 'Credencial'}} /> 
           </Stack.Navigator>
           ) :  (
             <Stack.Navigator 

@@ -26,7 +26,7 @@ export default function Login() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#8c8733"
+        backgroundColor: "#50812f"
     },
     logoContainer: {
         alignItems: "center",

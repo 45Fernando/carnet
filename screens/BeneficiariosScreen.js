@@ -17,7 +17,7 @@ export default function Beneficiarios({ navigation }) {
     useEffect(() => {
         async function fetchData(){
             try{
-                let response = await fetch ('http://192.168.1.7:4000/api/affiliates_covenants', {
+                let response = await fetch ('http://192.168.1.8:4000/api/affiliates_covenants', {
                     method: 'GET',
                     withCredentials: true,
                     credentials: 'include',
@@ -47,7 +47,7 @@ export default function Beneficiarios({ navigation }) {
         <Fragment>
             <ScrollView>
                 {listaBeneficiarios.map(beneficiario => (
-                    <Button key={beneficiario.affiliate.id} style={styles.boton} icon="card-account-details-outline" mode="contained" onPress={() => navigation.navigate('Carnet', beneficiario)}>
+                    <Button key={beneficiario.affiliate.id} style={styles.boton} icon="card-account-details-outline" mode="contained" onPress={() => navigation.navigate('Credencial', beneficiario)}>
                         {beneficiario.affiliate.name}
                     </Button> 
                 ))}                   
